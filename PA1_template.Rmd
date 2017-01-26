@@ -1,7 +1,7 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
-output: "PA_template.md"
-  html_document: "PA1_template.html"
+output:
+  html_document:
     keep_md: true
 ---
 This is my markdown file for solving Course Project 1 from Reproducible Research course, fourth in Data Science Specialization by Coursera - John Hopkins University.
