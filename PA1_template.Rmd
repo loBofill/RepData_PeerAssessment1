@@ -112,14 +112,14 @@ table(data2$wkd)
 So far so good. Now we must plot the average steps per interval in two panels, each of them containing the data on each kind of day.
 
 ```{r}
-wd.ave <- with(subset(data2, data2$wkd == "weekday"), aggregate(steps, by = list(interval), mean, na.rm = TRUE))
-we.ave <- with(subset(data2, data2$wkd == "weekend"), aggregate(steps, by = list(interval), mean, na.rm = TRUE))
+wd.ave <- with(subset(data2, data2$wkd == "weekday"), aggregate(steps, by = list(interval), mean))
+we.ave <- with(subset(data2, data2$wkd == "weekend"), aggregate(steps, by = list(interval), mean))
 names(wd.ave) <- c("interval", "steps"); names(we.ave) <- c("interval", "steps")
 par(mfrow = c(2,1), mar=c(4,6,0,0))
 with(wd.ave, plot(interval, steps, type = "l", col = "darkgreen", lwd = 2, bty = "n",
      xlab = "", ylab = "Avg number of steps\n taken on weekdays"))
-with(int.ave, plot(interval, steps, type = "l", col = "darkgreen", lwd = 2, bty = "n",
+with(we.ave, plot(interval, steps, type = "l", col = "darkgreen", lwd = 2, bty = "n",
      xlab = "5-minute interval", ylab = "Avg number of steps\n taken on weekends"))
 ```
 
-Not much difference appreciated, right? We should dig deeper to find the main divergences, but for now this assignment it over. Thanks for reading!
+We see that normal days show a morning spike and low-step working hours, while weekends have activity shared throughout the day. Assignment finished!
